@@ -12,7 +12,11 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    @animal = Animal.new(params.require(:animal).access(:name, :abilities, :location, :age, :price, :user_id))
-    @animal.save
+    @animal = Animal.new(params.require(:animal).permit(:name, :abilities, :location, :age, :price, :user_id))
+    if @animal.save
+      redirect_to animal_path(@animal), notice: "Animal was successfully created."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 end
