@@ -9,10 +9,21 @@ class AnimalsController < ApplicationController
 
   def new
     @animal = Animal.new
+
   end
 
   def create
-    @animal = Animal.new(params.require(:animal).access(:name, :abilities, :location, :age, :price, :user_id))
-    @animal.save
+    @animal = Animal.new(animal_params)
+    if @animal.save
+      redirect_to @animal
+    else
+      render :new
+    end
+
+  end
+
+  private
+  def animal_params
+    params.require(:animal).permit(:name, :location, :age)
   end
 end
