@@ -10,7 +10,7 @@
 
 <div class="container d-flex">
   <div class = "row">
-    <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 col-4 bg-white vh-100">
+    <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 col-3 bg-white min-vh-100">
       <div class="btn-group" role="group">
         <button type="button" class="btn btn-primary dropdown-toggle mt-3" data-bs-toggle="dropdown" aria-expanded="false">
           Age
@@ -42,18 +42,31 @@
       </div>
     </div>
 
-    <div class="col-8">
-      <% @animals.each do |animal| %>
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title"><%= animal.name %></h5>
-            <p class="card-text"><%= animal.location %></p>
-            <a href="#" class="btn btn-primary"><%= animal.abilities %></a>
-            <a href="#" class="btn btn-warning">Type 2</a>
-          </div>
+
+
+<div class='col-9 bg-white' style="display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    ">
+   <div class="row" >
+  <% @animals.each do |animal| %>
+    <div class="col-sm-4">
+      <div class="card mt-3 " >
+        <%= image_tag('lia-xKRv2abDDeg-unsplash.jpg') %>
+        <div class="card-body  ">
+          <h5 class="card-title"><%= link_to animal.name, animal_path(animal) %></h5>
+          <p class="card-text"><%= animal.location %></p>
+          <a href="#" class="btn btn-primary"><%= animal.abilities %></a>
+          <a href="#" class="btn btn-warning">Type 2</a>
         </div>
-      <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
+</div>
+
+
+
+
+
+<%# #use ruby image_tag %>
