@@ -13,17 +13,11 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    @animal = Animal.new(animal_params)
+    @animal = Animal.new(params.require(:animal).permit(:name, :abilities, :location, :age, :price, :user_id))
     if @animal.save
-      redirect_to @animal
+      redirect_to animal_path(@animal), notice: "Animal was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
-
-  end
-
-  private
-  def animal_params
-    params.require(:animal).permit(:name, :location, :age)
   end
 end

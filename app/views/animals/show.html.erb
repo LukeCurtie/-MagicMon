@@ -1,12 +1,18 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h1><%= @animal.name %></h1>
-      <p><%= @animal.location %></p>
-      <p><%= @animal.abilities %></p>
-      <p><%= @animal.age %></p>
-
+<div class="card">
+  <div class="row no-gutters">
+    <div class="col-md-6">
+      <%= image_tag('lia-xKRv2abDDeg-unsplash.jpg', class: 'card-img') %>
     </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h5 class="card-title"><%= @animal.name %></h5>
+        <p class="card-text"><%= @animal.location %></p>
+        <a href="#" class="btn btn-primary"><%= @animal.abilities %></a>
+        <a href="#" class="btn btn-warning">Type 2</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Back', animals_path, class: 'btn btn-secondary' %>
   </div>
 </div>
