@@ -9,6 +9,9 @@
   </div>
 </div>
 
+<div class="container d-flex>
+
+<div class = "col-4">
 <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-white col-3 vh-100" style="width: 280px;">
 
 <div class="btn-group" role="group">
@@ -40,5 +43,20 @@
       <li><a class="dropdown-item" href="#">Dropdown link</a></li>
     </ul>
   </div>
+</div>
+</div>
+
+
+<div class="col-8">
+  <% @animals.each do |animal| %>
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%= animal.name %></h5>
+      <p class="card-text"><%= animal.location %></p>
+      <a href="#" class="btn btn-primary"><%= animal.abilities %></a>
+      <a href="#" class="btn btn-warning">Type 2</a>
+    </div>
+  <% end %>
 </div>
 </div>
