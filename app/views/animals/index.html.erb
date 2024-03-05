@@ -1,55 +1,15 @@
-<div class = "container d-flex min-vw-100">
+<div class = "container top-header bg-white">
 
-<%# sidebar %>
-<%# <div class = "container p-3 bg-dark" > %>
-<div class = "row bg-white">
-<div class = "col-4">
-
-<%# sidebar filters %>
-
-<div class="btn-group">
-  <button class="btn btn-secondary btn-sm" type="button">
-    Small split button
-  </button>
-  <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <div class="dropdown-menu">
-    <ul class="dropdown-menu">
-    ...
-  </ul>
+<h2>MagicMon</h2>
+ <div class="container-fluid">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
   </div>
-
-<%# <div class = "btn-group">
-<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Abilities
-  </button>
-  <ul class="dropdown-menu">
-    ...
-  </ul>
 </div>
 
-<div class = "btn-group">
-<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Location
-  </button>
-  <ul class="dropdown-menu">
+<div class = "container content-middle bg-white">
 
-  </ul>
-</div>
-</div>
-</div>
-</div> %>
 
-<%# <div class = "container p-3 bg-white" > %>
-<div class = "row">
-<div class = "col-8">
-<ul>
-<% @animals.each do |animal| %>
-<li><%= animal.name %></li>
-<% end %>
-</ul>
-</div>
-</div>
-</div>
 </div>
