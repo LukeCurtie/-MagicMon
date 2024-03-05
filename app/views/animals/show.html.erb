@@ -1,2 +1,18 @@
-<h1>Animals#show</h1>
-<p>Find me in app/views/animals/show.html.erb</p>
+<div class="card">
+  <div class="row no-gutters">
+    <div class="col-md-6">
+      <%= image_tag('lia-xKRv2abDDeg-unsplash.jpg', class: 'card-img') %>
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h5 class="card-title"><%= @animal.name %></h5>
+        <p class="card-text"><%= @animal.location %></p>
+        <a href="#" class="btn btn-primary"><%= @animal.abilities %></a>
+        <a href="#" class="btn btn-warning">Type 2</a>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Back', animals_path, class: 'btn btn-secondary' %>
+  </div>
+</div>
