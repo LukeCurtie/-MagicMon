@@ -1,7 +1,15 @@
 class AnimalsController < ApplicationController
+
+
   def index
-    @animals = Animal.all
+    if params[:search]
+      @animals = Animal.find(params[:search]).order("created_at DESC")
+    else
+      @animals = Animal.all.order('created_at DESC')
+    end
   end
+
+
 
   def show
     @animal = Animal.find(params[:id])
@@ -15,7 +23,7 @@ class AnimalsController < ApplicationController
 
   def create
     @animal = Animal.new(animal_params)
-    @animal.user_id = current_user.id
+    @animal.user_id = current_user.id if current_user
 
     if @animal.save
       redirect_to @animal
@@ -28,6 +36,8 @@ class AnimalsController < ApplicationController
 
   def animal_params
     params.require(:animal).permit(:name, :abilities, :age, :location, :price)
+
+
   end
 
 end
