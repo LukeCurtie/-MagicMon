@@ -54,6 +54,7 @@
   <% @animals.each do |animal| %>
     <div class="col-sm-4">
       <div class="card mt-3 " >
+        <%# Cloudinary Image %>
         <%= image_tag('lia-xKRv2abDDeg-unsplash.jpg') %>
         <div class="card-body  ">
           <h5 class="card-title"><%= link_to animal.name, animal_path(animal) %></h5>

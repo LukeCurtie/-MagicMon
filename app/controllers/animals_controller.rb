@@ -23,7 +23,7 @@ class AnimalsController < ApplicationController
 
   def create
     @animal = Animal.new(animal_params)
-    @animal.user_id = current_user.id if current_user
+    @animal.user = current_user
 
     if @animal.save
       redirect_to @animal
@@ -32,6 +32,36 @@ class AnimalsController < ApplicationController
     end
   end
 
+ def edit
+  @animal = Animal.find(params[:id])
+  @animal.user = current_user
+
+
+
+  end
+
+  def update
+    @animal = Animal.find(params[:id])
+    @animal.user = current_user
+
+    if @animal.update(animal_params)
+
+      redirect_to @animal
+
+    else
+      render 'edit'
+    end
+  end
+
+
+
+  # 22331312111 is out of range for ActiveModel::Type::Integer with limit 4 bytes
+
+
+
+
+
+
   private
 
   def animal_params
@@ -39,5 +69,6 @@ class AnimalsController < ApplicationController
 
 
   end
+
 
 end
