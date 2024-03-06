@@ -28,14 +28,8 @@ class Ability < ApplicationRecord
   has_and_belongs_to_many :animals
 end %>
 
-
-<%# <%= f.association :abilities, as: :check_boxes %>
-
-
-<%# def animal_params
-  params.require(:animal).permit(:name, :age, :location, :price, ability_ids: [])
-end
+<%#
+<%= f.association :abilities, as: :check_boxes %>
 
 
-<% @animal.abilities.each do |ability| %>
-  <%# <%= ability.name %>
+
