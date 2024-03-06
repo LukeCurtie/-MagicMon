@@ -1,12 +1,14 @@
-<div class = "container top-header bg-white">
+<div class="container top-header bg-white">
   <h2>MagicMon</h2>
   <div class="container-fluid">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+    <form class="d-flex" role="search" action="<%= animals_path %>" method="get">
+  <input name="search" class="form-control me-2 rounded-pill" type="search" placeholder="Search for an animal..." aria-label="Search" style="border: none; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
+  <button class="btn btn-outline-success rounded-pill" type="submit" style="border: none; box-shadow: 0 0 15px rgba(0,0,0,0.1);">Search</button>
+</form>
   </div>
 </div>
+
+<%# have changed the button %>
 
 <div class="container d-flex">
   <div class = "row">
