@@ -55,7 +55,7 @@ class AnimalsController < ApplicationController
 
 
 
-  # 22331312111 is out of range for ActiveModel::Type::Integer with limit 4 bytes
+
 
 
 
@@ -65,7 +65,7 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :abilities, :age, :location, :price)
+    params.require(:animal).permit(:name, :abilities, :age, :location, :price, :image)
 
 
   end
