@@ -5,12 +5,13 @@
     </div>
     <div class="col-md-6">
       <div class="card-body">
-        <h5 class="card-title"><%= @animal.name %></h5>
-        <p class="card-text"><%= @animal.location %></p>
-        <p><%= @animal.age %></p>
+        <h3 class="card-title"><%= @animal.name %></h3>
+        <p class="card-text">Located At <%= @animal.location %></p>
+        <p>  <%= @animal.age %> Years old</p>
+        <p>Price is: $<%= @animal.price %></p>
         <a href="#" class="btn btn-primary"><%= @animal.abilities %></a>
 
-        <a href="#" class="btn btn-warning">Type 2</a>
+
       </div>
     </div>
   </div>
