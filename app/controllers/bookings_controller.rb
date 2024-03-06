@@ -4,11 +4,30 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @animal = Animal.find(params[:animal_id])
     @booking = Booking.new
+
+
+
   end
 
   def create
-    @abooking = Booking.new(params.require(:booking).access(:start_date, :end_date, :ltotal_price, :user_id, :animal_id))
-    @animal.save
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.animal = Animal.find(params[:animal_id])
+    if @booking.save
+      redirect_to  @booking.animal
+    else
+      render :new
+    end
   end
+
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date)
+  end
+
+
 end
