@@ -7,12 +7,23 @@
       <div class="card-body">
         <h5 class="card-title"><%= @animal.name %></h5>
         <p class="card-text"><%= @animal.location %></p>
+        <p><%= @animal.age %></p>
         <a href="#" class="btn btn-primary"><%= @animal.abilities %></a>
+
         <a href="#" class="btn btn-warning">Type 2</a>
       </div>
     </div>
   </div>
   <div class="card-footer">
-    <%= link_to 'Back', animals_path, class: 'btn btn-secondary' %>
+    <%= link_to 'Back', animals_path, class: ' btn btn-secondary' %>
+    <%# link to edit %>
+
+    <%= link_to 'Edit', edit_animal_path, class: 'btn btn-dark' if @animal.user == current_user %>
+
+
   </div>
 </div>
+
+
+<%#
+if the user isnt signed in, the edit button should not show %>
