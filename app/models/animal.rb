@@ -1,5 +1,6 @@
 class Animal < ApplicationRecord
   belongs_to :user
+  has_one_attached :image
 
   ABILITIES = %w[Speed Water Fire Air Earth Intellect Teleport]
   validates :abilities, inclusion: { in: ABILITIES }

@@ -1,7 +1,7 @@
 <div class="card">
   <div class="row no-gutters">
     <div class="col-md-6">
-      <%= image_tag('lia-xKRv2abDDeg-unsplash.jpg', class: 'card-img') %>
+      <%= cl_image_tag(@animal.image.key, class: "card-img")  if @animal.image.attached?%>
     </div>
     <div class="col-md-6">
       <div class="card-body">
@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="card-footer">
-    <%= link_to 'Back', animals_path, class: ' btn btn-secondary' %>
+    <%= link_to 'Back', animals_path, class: ' btn btn-secondary'  %>
     <%# link to edit %>
 
     <%= link_to 'Edit', edit_animal_path, class: 'btn btn-dark' if @animal.user == current_user %>

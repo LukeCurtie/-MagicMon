@@ -1,8 +1,12 @@
 <%= simple_form_for(@animal) do |f| %>
   <%= f.input :name %>
   <%= f.input :abilities, collection: Animal::ABILITIES %>
+  <%= f.input :image, as: :file%>
   <%= f.input :age %>
   <%= f.input :location %>
   <%= f.input :price %>
   <%= f.submit %>
 <% end %>
+
+
+  <%# has_one_attached :image %>

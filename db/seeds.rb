@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 puts 'Destroying the previous data'
+Booking.destroy_all
 Animal.destroy_all
 User.destroy_all
 
@@ -32,8 +33,10 @@ puts "dummy owner created successfully."
 10.times do
   animal = Animal.new(
     name: Faker::Creature::Animal.name,
-    abilities: Faker::Creature::Animal.name,
+    abilities: %w[Speed Water Fire Air Earth Intellect Teleport].sample,
     location: Faker::Address.city,
+    image_url: Faker::Avatar.image,
+
 
     age: Faker::Number.number(digits: 2),
     price: Faker::Number.number(digits: 3),
@@ -45,3 +48,16 @@ end
 puts "Created #{Animal.count} animals"
 
 
+# require 'net/http'
+# require 'json'
+
+# def get_pokemon_image(pokemon_name)
+#   url = "https://pokeapi.co/api/v2/pokemon/#{pokemon_name}"
+#   uri = URI(url)
+#   response = Net::HTTP.get(uri)
+#   data = JSON.parse(response)
+#   data['sprites']['front_default']
+# end
+
+# pokemon_name = 'pikachu'
+# image_url = get_pokemon_image(pokemon_name)

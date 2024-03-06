@@ -55,7 +55,8 @@
     <div class="col-sm-4">
       <div class="card mt-3 " >
         <%# Cloudinary Image %>
-        <%= image_tag('lia-xKRv2abDDeg-unsplash.jpg') %>
+        <%# upload the image to Cloudinary %>
+        <%= cl_image_tag animal.image.key, class: "card-img-top" if animal.image.attached? %>
         <div class="card-body  ">
           <h5 class="card-title"><%= link_to animal.name, animal_path(animal) %></h5>
           <p class="card-text"><%= animal.location %></p>
@@ -71,3 +72,7 @@
 <%# link to the new route %>
 
 <%= link_to 'New Animal', new_animal_path, class: "btn btn-primary" %>
+
+
+
+<%# <%= cl_image_tag(@animal.image.key) if @animal.image.attached? %> %>
