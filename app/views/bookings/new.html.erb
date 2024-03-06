@@ -1,2 +1,25 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<%#
+simple form for the booking %>
+
+
+<%= simple_form_for [@animal, @booking] do |f| %>
+
+<%= f.input :start_date, as: :string, input_html: {
+    data: {
+      controller: 'datepicker',
+
+    }
+
+  } %>
+  <%= f.input :end_date, as: :string, input_html: {
+    data: {
+      controller: 'datepicker',
+
+    }
+
+  } %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+
+
+
+<% end %>

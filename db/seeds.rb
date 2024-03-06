@@ -34,6 +34,7 @@ puts "dummy owner created successfully."
     name: Faker::Creature::Animal.name,
     abilities: Faker::Creature::Animal.name,
     location: Faker::Address.city,
+
     age: Faker::Number.number(digits: 2),
     price: Faker::Number.number(digits: 3),
   )
@@ -42,3 +43,5 @@ puts "dummy owner created successfully."
 end
 
 puts "Created #{Animal.count} animals"
+
+

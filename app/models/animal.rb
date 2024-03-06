@@ -7,5 +7,4 @@ class Animal < ApplicationRecord
   validates :age, numericality: { only_integer: true, greater_than: 0 }
   validates :price, numericality: { greater_than: 0 }
   validates :name, uniqueness: true
-
 end
