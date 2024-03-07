@@ -1,9 +1,9 @@
 <div class="container top-header bg-white">
-  <h2>MagicMon</h2>
+  <h2 class="dancing-script bounce-top" style="text-align:center">MagicMon <i class="fa-solid fa-dragon"></i></i></h2>
   <div class="container-fluid">
     <form class="d-flex" role="search" action="<%= animals_path %>" method="get">
   <input name="search" class="form-control me-2 rounded-pill" type="search" placeholder="Search for an animal..." aria-label="Search" style="border: none; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
-  <button class="btn btn-outline-success rounded-pill" type="submit" style="border: none; box-shadow: 0 0 15px rgba(0,0,0,0.1);">Search</button>
+  <button class="btn btn-primary rounded-pill" type="submit" style="border: none; box-shadow: 0 0 15px rgba(0,0,0,0.2);">Search</button>
 </form>
   </div>
 </div>
@@ -35,7 +35,7 @@
 
       <div class="btn-group" role="group">
         <button type="button" class="btn btn-primary dropdown-toggle mt-4" data-bs-toggle="dropdown" aria-expanded="false">
-          Location
+         Price
         </button>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#">Dropdown link</a></li>
@@ -50,17 +50,17 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 20px;
     ">
-   <div class="row" >
+   <div class="row">
   <% @animals.each do |animal| %>
     <div class="col-sm-4">
-      <div class="card mt-3 " >
+      <div class="card mt-3 " id="animal-card" >
         <%# Cloudinary Image %>
         <%# upload the image to Cloudinary %>
         <%= cl_image_tag animal.image.key, class: "card-img-top" if animal.image.attached? %>
         <div class="card-body  ">
           <h5 class="card-title"><%= link_to animal.name, animal_path(animal) %></h5>
           <p class="card-text"><%= animal.location %></p>
-          <a href="#" class="btn btn-primary"><%= animal.abilities %></a>
+          <a href="#" class="btn btn-success rounded-pill"><%= animal.abilities %></a>
           <%# <a href="#" class="btn btn-warning">Type 2</a> %>
         </div>
       </div>
