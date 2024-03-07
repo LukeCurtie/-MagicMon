@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'animal_abilities/new'
+  get 'animal_abilities/create'
+  get 'bookings/index'
+  get 'bookings/new'
+  get 'bookings/create'
+
   # get 'animals/index'
   # get 'animals/show'
   devise_for :users
