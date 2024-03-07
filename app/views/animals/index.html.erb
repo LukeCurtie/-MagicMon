@@ -53,15 +53,16 @@
    <div class="row">
   <% @animals.each do |animal| %>
     <div class="col-sm-4">
-      <div class="card mt-3 " id="animal-card" >
+      <div class="card mt-3" id="animal-card">
         <%# Cloudinary Image %>
         <%# upload the image to Cloudinary %>
         <%= cl_image_tag animal.image.key, class: "card-img-top" if animal.image.attached? %>
         <div class="card-body  ">
           <h5 class="card-title"><%= link_to animal.name, animal_path(animal) %></h5>
           <p class="card-text"><%= animal.location %></p>
-          <a href="#" class="btn btn-success rounded-pill"><%= animal.abilities[0] %></a>
-          <%# <a href="#" class="btn btn-warning">Type 2</a> %>
+          <% animal.abilities.each do |ability| %>
+            <a href="#" class="btn btn-success rounded-pill"><%=ability.name %></a>
+          <% end %>
         </div>
       </div>
     </div>
@@ -70,9 +71,6 @@
 </div>
 
 <%# link to the new route %>
-
-<%= link_to 'New Animal', new_animal_path, class: "btn btn-primary" %>
-
-
-
 <%# <%= cl_image_tag(@animal.image.key) if @animal.image.attached? %>
+</div>
+</div>
