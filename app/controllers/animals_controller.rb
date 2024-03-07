@@ -28,7 +28,7 @@ class AnimalsController < ApplicationController
     @animal.user = current_user
 
     if @animal.save
-      redirect_to animal_abilities_new_path(@animal)
+      redirect_to new_animal_animal_ability_path(@animal)
     else
       render 'new', status: :unprocessable_entity
     end

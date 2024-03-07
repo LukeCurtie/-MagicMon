@@ -1,2 +1,12 @@
-<h1>AnimalAbilities#new</h1>
-<p>Find me in app/views/animal_abilities/new.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <h1>Add new tag for <%= @animal.name %></h1>
+
+      <%= simple_form_for [@animal, @animal_ability] do |f| %>
+        <%= f.association :ability, as: :check_boxes, collection: Ability.all %>
+        <%= f.submit "Add ability", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -13,7 +13,9 @@
         <p class="card-text">Located At <%= @animal.location %></p>
         <p>  <%= @animal.age %> Years old</p>
         <p>Price is: $<%= @animal.price %></p>
-        <a href="#" class="btn btn-primary"><%= @animal.abilities %></a>
+        <% @animal.abilities.each do |ability|  %>
+        <a href="#" class="btn btn-primary"><%= ability.name %></a>
+        <% end %>
 
         <%= render 'book_form' %>
 
