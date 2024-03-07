@@ -30,16 +30,15 @@ puts "dummy owner created successfully."
 #db/migrate/20240304124028_create_animals.rb
 
 
-10.times do
+3.times do
   animal = Animal.new(
     name: Faker::Creature::Animal.name,
-    abilities: %w[Speed Water Fire Air Earth Intellect Teleport].sample,
     location: Faker::Address.city,
     image_url: Faker::Avatar.image,
 
 
     age: Faker::Number.number(digits: 2),
-    price: Faker::Number.number(digits: 3),
+    price: Faker::Number.number(digits: 3)
   )
   animal.user = user1
   animal.save!
@@ -61,3 +60,9 @@ puts "Created #{Animal.count} animals"
 
 # pokemon_name = 'pikachu'
 # image_url = get_pokemon_image(pokemon_name)
+
+abilities = %w[Fire Earth Water Air Intellect Strength Speed]
+
+abilities.each do |ability|
+  Ability.create!(name: ability)
+end

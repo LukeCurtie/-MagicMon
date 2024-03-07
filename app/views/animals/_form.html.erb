@@ -1,6 +1,5 @@
 <%= simple_form_for(@animal) do |f| %>
   <%= f.input :name %>
-  <%= f.input :abilities, collection: Animal::ABILITIES %>
   <%= f.input :image, as: :file%>
   <%= f.input :age %>
   <%= f.input :location %>

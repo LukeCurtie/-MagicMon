@@ -1,9 +1,9 @@
 class Animal < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_many :animal_abilities
+  has_many :abilities, through: :animal_abilities
 
-  ABILITIES = %w[Speed Water Fire Air Earth Intellect Teleport]
-  validates :abilities, inclusion: { in: ABILITIES }
   validates :name, :location, :age, :price, presence: true
   validates :age, numericality: { only_integer: true, greater_than: 0 }
   validates :price, numericality: { greater_than: 0 }

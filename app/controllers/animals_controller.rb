@@ -28,7 +28,7 @@ class AnimalsController < ApplicationController
     @animal.user = current_user
 
     if @animal.save
-      redirect_to @animal
+      redirect_to animal_abilities_new_path(@animal)
     else
       render 'new', status: :unprocessable_entity
     end
@@ -67,7 +67,7 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :abilities, :age, :location, :price, :image)
+    params.require(:animal).permit(:name, :age, :location, :price, :image)
 
 
   end

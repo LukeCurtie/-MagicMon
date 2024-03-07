@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_06_120124) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_07_115246) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abilities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,9 +48,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_120124) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "animal_abilities", force: :cascade do |t|
+    t.bigint "animal_id", null: false
+    t.bigint "ability_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ability_id"], name: "index_animal_abilities_on_ability_id"
+    t.index ["animal_id"], name: "index_animal_abilities_on_animal_id"
+  end
+
   create_table "animals", force: :cascade do |t|
     t.string "name"
-    t.string "abilities"
     t.string "location"
     t.integer "age"
     t.integer "price"
@@ -84,6 +98,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_06_120124) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "animal_abilities", "abilities"
+  add_foreign_key "animal_abilities", "animals"
   add_foreign_key "animals", "users"
   add_foreign_key "bookings", "animals"
   add_foreign_key "bookings", "users"
