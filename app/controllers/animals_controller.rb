@@ -12,7 +12,9 @@ class AnimalsController < ApplicationController
 
 
   def show
+    @booking = Booking.new
     @animal = Animal.find(params[:id])
+
   end
 
   def new
@@ -28,7 +30,7 @@ class AnimalsController < ApplicationController
     if @animal.save
       redirect_to @animal
     else
-      render 'new'
+      render 'new', status: :unprocessable_entity
     end
   end
 
