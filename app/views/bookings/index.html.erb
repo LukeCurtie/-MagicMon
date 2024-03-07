@@ -1,3 +1,30 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
 
+
+  <h1>Your Bookings</h1>
+  <% @bookings.each do |booking| %>
+
+    <div class="card">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <%= cl_image_tag(booking.animal.image.key, class: "card-img")  if booking.animal.image.attached?%>
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h3 class="card-title"><%= booking.animal.name %></h3>
+            <p class="card-text">Located At <%= booking.animal.location %></p>
+            <p>  <%= booking.animal.age %> Years old</p>
+            <p>Price is: $<%= booking.animal.price %></p>
+            <p>Start Date: <%= booking.start_date %></p>
+            <p>End Date: <%= booking.end_date %></p>
+            <p>Total Price: <%= booking.total_price %>$</p>
+            <a href="#" class="btn btn-primary"><%= booking.animal.abilities %></a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+            <% end %>
