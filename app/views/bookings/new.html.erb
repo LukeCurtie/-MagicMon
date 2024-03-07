@@ -1,25 +1,5 @@
-<%#
-simple form for the booking %>
 
 
-<%= simple_form_for [@animal, @booking] do |f| %>
-
-<%= f.input :start_date, as: :string, input_html: {
-    data: {
-      controller: 'datepicker',
-
-    }
-
-  } %>
-  <%= f.input :end_date, as: :string, input_html: {
-    data: {
-      controller: 'datepicker',
-
-    }
-
-  } %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
-
-
-
-<% end %>
+<h1>
+  This is the new booking page
+</h1>
