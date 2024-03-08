@@ -2,6 +2,7 @@
   <%= f.input :start_date, as: :string, input_html: { id: 'start_date', data: { controller: 'datepicker' } } %>
   <%= f.input :end_date, as: :string, input_html: { id: 'end_date', data: { controller: 'datepicker', dateFormate: 'DD-MM-YYYY' } } %>
   <p id="stay_duration"></p>
+  <p id="total_price"></p>
   <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
 
@@ -9,7 +10,9 @@
   const startDateInput = document.getElementById('start_date');
   const endDateInput = document.getElementById('end_date');
   const stayDurationParagraph = document.getElementById('stay_duration');
-  const initialPrice = document.querySelector('.animal-price').textContent;
+  const totalPriceParagraph = document.getElementById('total_price');
+const pricePerDay = parseFloat(document.querySelector('.animal-price').textContent.replace('Price is: $', ''));
+
 
   function calculateStayDuration() {
     const startDate = new Date(startDateInput.value);
@@ -18,6 +21,8 @@
 
     if (!isNaN(duration)) {
       stayDurationParagraph.textContent = `Stay duration: ${duration} days`;
+      const totalPrice = pricePerDay * duration;
+      totalPriceParagraph.textContent = `Total price: ${totalPrice} USD`;
     }
   }
 
