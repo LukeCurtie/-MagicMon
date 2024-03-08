@@ -1,7 +1,7 @@
 <div class="card">
   <div class="row no-gutters">
     <div class="col-md-6">
-      <%= cl_image_tag(@animal.image.key, class: "card-img")  if @animal.image.attached?%>
+      <%= cl_image_tag(@animal.image.key, class: "show-img")  if @animal.image.attached?%>
     </div>
     <div class="col-md-6">
       <div class="card-body">
@@ -14,7 +14,7 @@
         <p>  <%= @animal.age %> Years old</p>
         <p>Price is: $<%= @animal.price %></p>
         <% @animal.abilities.each do |ability|  %>
-        <a href="#" class="btn btn-primary"><%= ability.name %></a>
+        <a href="#" class="btn btn-success rounded-pill"><%= ability.name %></a>
         <% end %>
 
         <%= render 'book_form' %>
@@ -26,10 +26,10 @@
     </div>
   </div>
   <div class="card-footer">
-    <%= link_to 'Back', animals_path, class: ' btn btn-secondary'  %>
+    <%= link_to 'Back', animals_path, class: ' btn btn-secondary rounded-pill'  %>
     <%# link to edit %>
 
-    <%= link_to 'Edit', edit_animal_path, class: 'btn btn-dark' if @animal.user == current_user %>
+    <%= link_to 'Edit', edit_animal_path, class: 'btn btn-dark rounded-pill' if @animal.user == current_user %>
 
     <%# #link to make a booking %>
 
