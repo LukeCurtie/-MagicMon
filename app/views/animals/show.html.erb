@@ -12,7 +12,7 @@
         <h3 class="card-title"><%= @animal.name %></h3>
         <p class="card-text">Located At <%= @animal.location %></p>
         <p>  <%= @animal.age %> Years old</p>
-        <p>Price is: $<%= @animal.price %></p>
+        <p class='animal-price'>Price is: $<%= @animal.price %></p>
         <% @animal.abilities.each do |ability|  %>
         <a href="#" class="btn btn-success rounded-pill"><%= ability.name %></a>
         <% end %>
