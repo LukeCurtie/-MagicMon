@@ -20,6 +20,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :bookings do
+    collection do
+      get :my_bookings
+    end
+  end
+
   resources :animals do
     resources :animal_abilities, only: [:new, :create]
     resources :bookings, only: [:new, :create, :index]
