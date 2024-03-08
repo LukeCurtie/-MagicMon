@@ -12,6 +12,10 @@ class AnimalsController < ApplicationController
       age_range = params[:age].split('-')
       @animals = @animals.where(age: age_range[0]..age_range[1])
     end
+
+    if params[:ability].present?
+      @animals = @animals.joins(:abilities).where(abilities: { name: params[:ability] })
+    end
   end
 
   def show

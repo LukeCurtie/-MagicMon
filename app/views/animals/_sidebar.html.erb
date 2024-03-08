@@ -18,9 +18,16 @@
         <button type="button" class="btn btn-primary dropdown-toggle mt-4" data-bs-toggle="dropdown" aria-expanded="false">
           Ability
         </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-          <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+
+         <ul class="dropdown-menu">
+  <li><%= link_to 'Fire', animals_path(ability: 'Fire'), class: "dropdown-item" %></li>
+  <li><%= link_to 'Water', animals_path(ability: 'Water'), class: "dropdown-item" %></li>
+  <li><%= link_to 'Earth', animals_path(ability: 'Earth'), class: "dropdown-item" %></li>
+  <li><%= link_to 'Air', animals_path(ability: 'Air'), class: "dropdown-item" %></li>
+  <li><%= link_to 'Intellect', animals_path(ability: 'Intellect'), class: "dropdown-item" %></li>
+  <li><%= link_to 'Strength', animals_path(ability: 'Strength'), class: "dropdown-item" %></li>
+  <li><%= link_to 'Speed', animals_path(ability: 'Speed'), class: "dropdown-item" %></li>
+
         </ul>
       </div>
 
