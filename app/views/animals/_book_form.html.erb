@@ -1,45 +1,26 @@
 <%= simple_form_for [@animal, @booking] do |f| %>
-
-<%= f.input :start_date, as: :string, input_html: {
-    data: {
-      controller: 'datepicker',
-
-    }
-
-  } %>
-
-
-  <%= f.input :end_date, as: :string, input_html: {
-    data: {
-      controller: 'datepicker',
-
-    }
-
-  } %>
-
-
-
-
-
-
-
-
-
+  <%= f.input :start_date, as: :string, input_html: { id: 'start_date', data: { controller: 'datepicker' } } %>
+  <%= f.input :end_date, as: :string, input_html: { id: 'end_date', data: { controller: 'datepicker', dateFormate: 'DD-MM-YYYY' } } %>
+  <p id="stay_duration"></p>
   <%= f.button :submit, class: 'btn btn-primary' %>
-
-
-
-  <p>Total Price: <%= @animal.price %>$</p>
-
-
-
-
-
-
-
-
-
-
-
-
 <% end %>
+
+<script>
+  const startDateInput = document.getElementById('start_date');
+  const endDateInput = document.getElementById('end_date');
+  const stayDurationParagraph = document.getElementById('stay_duration');
+  const initialPrice = document.querySelector('.animal-price').textContent;
+
+  function calculateStayDuration() {
+    const startDate = new Date(startDateInput.value);
+    const endDate = new Date(endDateInput.value);
+    const duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+
+    if (!isNaN(duration)) {
+      stayDurationParagraph.textContent = `Stay duration: ${duration} days`;
+    }
+  }
+
+  startDateInput.addEventListener('change', calculateStayDuration);
+  endDateInput.addEventListener('change', calculateStayDuration);
+</script>
