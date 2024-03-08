@@ -54,6 +54,10 @@ class AnimalsController < ApplicationController
     end
   end
 
+  def my_animals
+    @animals = current_user.animals
+  end
+
   private
 
   def animal_params

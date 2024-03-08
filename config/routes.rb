@@ -14,9 +14,15 @@ Rails.application.routes.draw do
   #  root to: 'pages#index'
 
 
+  resources :animals do
+    collection do
+      get :my_animals
+    end
+  end
 
   resources :animals do
     resources :animal_abilities, only: [:new, :create]
     resources :bookings, only: [:new, :create, :index]
   end
+
 end
