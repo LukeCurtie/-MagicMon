@@ -1,0 +1,23 @@
+ <h1>My Animals</h1>
+
+ <% @animals.each do |animal| %>
+
+    <div class="card">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <%= cl_image_tag(animal.image.key, class: "card-img")  if animal.image.attached?%>
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h3 class="card-title"><%= animal.name %></h3>
+            <p class="card-text">Located At <%= animal.location %></p>
+            <p>  <%= animal.age %> Years old</p>
+            <p>Price is: $<%= animal.price %></p>
+            <% animal.abilities.each do |ability| %>
+              <a href="#" class="btn btn-primary"><%= ability.name %></a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
