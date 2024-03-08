@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @animals = Animal.all.order('created_at DESC')
@@ -21,6 +21,7 @@ class AnimalsController < ApplicationController
   def show
     @booking = Booking.new
     @animal = Animal.find(params[:id])
+
   end
 
   def new

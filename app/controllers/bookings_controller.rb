@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.animal = @animal
     # @booking.total_price = total_price(@booking)
     if @booking.save
-      redirect_to animal_bookings_path(@animal)
+      redirect_to my_bookings_bookings_path(@animal)
     else
       redirect_to animal_path(@animal)
     end
