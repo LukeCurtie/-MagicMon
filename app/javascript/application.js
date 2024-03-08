@@ -28,3 +28,5 @@ import "bootstrap";
 //       "Total Price: " + totalPrice;
 //   }
 // };
+
+// add a DOMContentLoaded event listener to the window object, with a spinner that will be removed once the page is fully loaded

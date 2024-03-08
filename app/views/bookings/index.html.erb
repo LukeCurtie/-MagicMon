@@ -17,8 +17,9 @@
             <p>Start Date: <%= booking.start_date %></p>
             <p>End Date: <%= booking.end_date %></p>
             <p>Total Price: <%= booking.total_price %>$</p>
-            <a href="#" class="btn btn-primary"><%= booking.animal.abilities %></a>
-
+            <% booking.animal.abilities.each do |ability| %>
+              <a href="#" class="btn btn-primary"><%= ability.name %></a>
+            <% end %>
           </div>
         </div>
       </div>

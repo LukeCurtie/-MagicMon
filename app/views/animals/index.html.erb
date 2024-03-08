@@ -47,13 +47,14 @@
 
 
 <div class='col-9 bg-white' style="display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
+
     ">
-   <div class="row">
+
   <% @animals.each do |animal| %>
-    <div class="col-sm-4">
-      <div class="card mt-3" id="animal-card">
+
+      <div class="card mt-3 animal-card"  >
         <%# Cloudinary Image %>
         <%# upload the image to Cloudinary %>
         <%= cl_image_tag animal.image.key, class: "card-img-top" if animal.image.attached? %>
@@ -65,10 +66,10 @@
           <% end %>
         </div>
       </div>
-    </div>
+
   <% end %>
 </div>
-</div>
+
 
 <%# link to the new route %>
 <%# <%= cl_image_tag(@animal.image.key) if @animal.image.attached? %>

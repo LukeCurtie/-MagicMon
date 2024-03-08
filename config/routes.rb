@@ -19,6 +19,4 @@ Rails.application.routes.draw do
     resources :animal_abilities, only: [:new, :create]
     resources :bookings, only: [:new, :create, :index]
   end
-
-
 end

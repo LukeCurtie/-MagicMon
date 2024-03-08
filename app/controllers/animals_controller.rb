@@ -2,26 +2,21 @@ class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:search]
-      @animals = Animal.find(params[:search]).order("created_at DESC")
+    if params[:search].present?
+      @animals = Animal.where('name ILIKE ?', "%#{params[:search]}%")
     else
       @animals = Animal.all.order('created_at DESC')
     end
   end
 
-
-
   def show
     @booking = Booking.new
     @animal = Animal.find(params[:id])
-
   end
 
   def new
     @animal = Animal.new
-
   end
-
 
   def create
     @animal = Animal.new(animal_params)
@@ -34,12 +29,9 @@ class AnimalsController < ApplicationController
     end
   end
 
- def edit
-  @animal = Animal.find(params[:id])
-  @animal.user = current_user
-
-
-
+  def edit
+    @animal = Animal.find(params[:id])
+    @animal.user = current_user
   end
 
   def update
@@ -47,30 +39,15 @@ class AnimalsController < ApplicationController
     @animal.user = current_user
 
     if @animal.update(animal_params)
-
-      redirect_to @animal
-
+      redirect_to animal_path(@animal)
     else
-      render 'edit'
+      render 'edit', status: :unprocessable_entity
     end
   end
-
-
-
-
-
-
-
-
-
 
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :age, :location, :price, :image)
-
-
+    params.require(:animal).permit(:name, :location, :age, :price, :image)
   end
-
-
 end
