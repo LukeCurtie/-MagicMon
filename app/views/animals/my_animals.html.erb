@@ -5,10 +5,10 @@
     <div class="card">
       <div class="row no-gutters">
         <div class="col-md-6">
-          <%= cl_image_tag(animal.image.key, class: "card-img")  if animal.image.attached?%>
+          <%= cl_image_tag(animal.image.key, class: "card-img my-image")  if animal.image.attached?%>
         </div>
         <div class="col-md-6">
-          <div class="card-body">
+          <div class="card-body my-animal-body">
             <h3 class="card-title"><%= animal.name %></h3>
             <p class="card-text">Located At <%= animal.location %></p>
             <p>  <%= animal.age %> Years old</p>
