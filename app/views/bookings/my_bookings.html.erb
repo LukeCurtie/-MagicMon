@@ -1,0 +1,19 @@
+ <h1>My Bookings</h1>
+
+ <% @bookings.each do |booking| %>
+
+    <div class="card">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <%= cl_image_tag(booking.animal.image.key, class: "card-img")  if booking.animal.image.attached?%>
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h3 class="card-title"><%= booking.animal.name %></h3>
+            <p class="card-text">Start date <%= booking.start_date %></p>
+            <p>End date<%= booking.end_date %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
