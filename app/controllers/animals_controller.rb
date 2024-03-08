@@ -2,10 +2,15 @@ class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @animals = Animal.all.order('created_at DESC')
+
     if params[:search].present?
-      @animals = Animal.where('name ILIKE ?', "%#{params[:search]}%")
-    else
-      @animals = Animal.all.order('created_at DESC')
+      @animals = @animals.where('name ILIKE ?', "%#{params[:search]}%")
+    end
+
+    if params[:age].present?
+      age_range = params[:age].split('-')
+      @animals = @animals.where(age: age_range[0]..age_range[1])
     end
   end
 

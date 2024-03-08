@@ -1,0 +1,36 @@
+<div class="container d-flex">
+  <div class = "row">
+    <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 col-3 bg-white min-vh-100">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary dropdown-toggle mt-3" data-bs-toggle="dropdown" aria-expanded="false">
+          Age
+        </button>
+        <ul class="dropdown-menu text-center">
+  <li><%= link_to '0 - 29', animals_path(age: '0-29'), class: "dropdown-item first" %></li>
+  <li><%= link_to '30 - 59', animals_path(age: '30-59'), class: "dropdown-item second" %></li>
+  <li><%= link_to '59 - 80', animals_path(age: '59-80'), class: "dropdown-item third" %></li>
+  <li><%= link_to '80 - 100', animals_path(age: '80-100'), class: "dropdown-item fourth" %></li>
+  <li><%= link_to '100 +', animals_path(age: '100-'), class: "dropdown-item fifth" %></li>
+</ul>
+      </div>
+
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary dropdown-toggle mt-4" data-bs-toggle="dropdown" aria-expanded="false">
+          Ability
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+          <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+        </ul>
+      </div>
+
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary dropdown-toggle mt-4" data-bs-toggle="dropdown" aria-expanded="false">
+         Price
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+          <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+        </ul>
+      </div>
+    </div>
