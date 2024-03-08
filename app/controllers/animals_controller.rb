@@ -1,11 +1,14 @@
 class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-  def index
-    if params[:search]
-      @animals = Animal.find(params[:search]).order("created_at DESC")
+
+    def index
+      if params[:search].present?
+        @animals = Animal.where('name ILIKE ?', "%#{params[:search]}%")
+
     else
       @animals = Animal.all.order('created_at DESC')
+
     end
   end
 
@@ -51,8 +54,7 @@ class AnimalsController < ApplicationController
       redirect_to @animal
 
     else
-      render 'edit'
-    end
+      render 'edit', status: :unprocessable_entity
   end
 
 
@@ -72,5 +74,7 @@ class AnimalsController < ApplicationController
 
   end
 
+
+end
 
 end
