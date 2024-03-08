@@ -1,30 +1,14 @@
 class BookingsController < ApplicationController
 
   def index
-
-  @bookings = Booking.where(user_id: current_user.id)
-
- end
-
-
-
-
-
-
-
-
+    @bookings = Booking.where(user_id: current_user.id)
+  end
 
 
   def new
     @animal = Animal.find(params[:animal_id])
     @booking = Booking.new
-
   end
-
-
-
-
-
 
   def create
     @animal = Animal.find(params[:animal_id])
@@ -35,12 +19,9 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to animal_bookings_path(@animal)
     else
-      render :new, status: :unprocessable_entity
+      redirect_to animal_path(@animal)
     end
   end
-
-
-
 
   private
 
@@ -56,6 +37,4 @@ class BookingsController < ApplicationController
 
   #   number_of_days * price_per_day
   # end
-
-
 end
